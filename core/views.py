@@ -12,7 +12,7 @@ class CoreView(View):
             usuarios = list(client_core.usuario.models.Usuario.objects.values('nome', 'idade'))
         response = {
             'status': True,
-            'description': f'{self.request.tenant.name} Schema',
+            'description': f'{self.request.tenant.name} Schema.',
             'usuarios': usuarios if usuarios else "Schema principal não contem usuarios"
         }
 

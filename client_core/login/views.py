@@ -10,14 +10,18 @@ import BO.client_core.login.login
 
 # Create your views here.
 
-@csrf_exempt
 class LoginUserView(APIView):
     def post(self, request):
         data = json.loads(self.request.body)
 
-        status, descricao, response = BO.client_core.login.login.Login(request=self.request,
-                                                                       username=data.get('username'),
-                                                                       password=data.get('password')).login()
+        sistema = BO.client_core.login.login.Login(
+                                            request=self.request,
+                                            username=data.get('username'),
+                                            password=data.get('password')
+                                            )
+
+        status, descricao, response = sistema.login()
+
         response = {
             'status': status,
             'description': descricao,
@@ -26,7 +30,6 @@ class LoginUserView(APIView):
         return JsonResponse(response)
 
 
-@csrf_exempt
 class RegisterUserView(APIView):
     # Classe temporaria, apenas para registrar pessoas momentaniamente
     def post(self, request):

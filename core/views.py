@@ -9,7 +9,7 @@ class CoreView(View):
     def get(self, *args, **kwargs):
         usuarios = ''
         if self.request.tenant.schema_name != 'public':
-            usuarios = list(client_core.usuario.models.Usuario.objects.values('nome', 'idade'))
+            usuarios = list(client_core.usuario.models.Usuario.objects.values())
         response = {
             'status': True,
             'description': f'{self.request.tenant.name} Schema.',

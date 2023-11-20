@@ -8,7 +8,7 @@ import core.models
 # Create your models here.
 
 class Usuario(core.models.Log):
-    nm_completo = models.CharField(max_length=255, null=True)
+    nome = models.CharField(max_length=255, null=True)
     idade = models.IntegerField(null=True)
     is_client = models.BooleanField()
 

@@ -1,6 +1,5 @@
-from django.urls import path
-import client_core.usuario.views
-
+from django.urls import path, include
+import client_core.login.urls
 urlpatterns = [
-    path('', client_core.usuario.views.UsuarioView.as_view())
+    path('', include(client_core.login.urls))
 ]

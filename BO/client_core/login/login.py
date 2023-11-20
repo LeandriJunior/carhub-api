@@ -23,7 +23,7 @@ class Login:
                 status, descricao, sessao = BO.client_core.login.section.Section(user=user).access_section()
 
                 response = {
-                    'user_name': user.get('user'),
+                    'user_name': user['user'].nm_primeiro+ ' ' + user['user'].nm_ultimo,
                     'user_token': user.get('token')
                 }
                 return status, descricao, response

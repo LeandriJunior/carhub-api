@@ -70,7 +70,7 @@ TENANT_APPS = [
 INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 TENANT_MODEL = "customers.Client"
-PUBLIC_SCHEMA_URLCONF = 'client_core.urls'
+PUBLIC_SCHEMA_URLCONF = 'cartech.urls'
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
@@ -79,13 +79,12 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'cartech.urls'
+ROOT_URLCONF = 'client_core.urls'
 
 TEMPLATES = [
     {

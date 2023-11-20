@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 import client_core.usuario.models
-import BO.client_core.login
+import BO.client_core.login.login
 
 
 # Create your views here.
@@ -32,14 +32,15 @@ class RegisterUserView(APIView):
     def post(self, request):
         try:
             response = json.loads(self.request.body)
-            username = f"{response['nm_first']}.{response['nm_last']}"
-            newUser = client_core.usuario.models.UsuarioLogin.objects.create_user(username=username,
+            username = f"{response['nm_primeiro']}.{response['nm_ultimo']}"
+            client_core.usuario.models.UsuarioLogin.objects.create_user(username=username,
                                                                                   email=response['email'],
                                                                                   password=response['password'],
-                                                                                  nm_first=response['nm_first'],
-                                                                                  nm_last=response['nm_last'])
-            newUser.save()
+                                                                                  nm_primeiro=response['nm_primeiro'],
+                                                                                  nm_ultimo=response['nm_ultimo'])
+
             status = {'status': True}
-        except:
-            status = {'status': False}
+        except Exception as e:
+            status = {'status': False,
+                      'description': e}
         return JsonResponse(status)

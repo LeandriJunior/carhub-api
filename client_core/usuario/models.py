@@ -7,10 +7,7 @@ import core.models
 
 # Create your models here.
 
-class Usuario(core.models.Log):
-    nome = models.CharField(max_length=255, null=True)
-    idade = models.IntegerField(null=True)
-    is_client = models.BooleanField()
+
 
 
 class Profile(AbstractBaseUser, core.models.Log, PermissionsMixin):
@@ -61,3 +58,13 @@ class UsuarioLogin(Profile):
 
     class Meta:
         db_table = 'usuario_login'
+
+
+class Usuario(core.models.Log):
+    user = models.ForeignKey('UsuarioLogin', on_delete=models.DO_NOTHING, null=True)
+    nm_completo = models.CharField(max_length=255, null=True)
+    idade = models.IntegerField(null=True)
+    is_client = models.BooleanField()
+
+    class Meta:
+        db_table = 'usuario'

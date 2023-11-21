@@ -61,10 +61,13 @@ SHARED_APPS = [
 ]
 
 TENANT_APPS = [
+    'django.contrib.contenttypes',
+    'django.contrib.sites',
     'client_core',
     'client_core.usuario',
-    'django.contrib.contenttypes',
-    'django.contrib.sites'
+    'client_core.sistema',
+    'client_core.sistema.permissao',
+
 ]
 
 INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]

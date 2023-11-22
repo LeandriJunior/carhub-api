@@ -65,6 +65,6 @@ class Usuario(core.models.Log):
     nm_completo = models.CharField(max_length=255, null=True)
     idade = models.IntegerField(null=True)
     is_client = models.BooleanField()
-
+    tela_principal = models.CharField(max_length=255, null=True)
     class Meta:
         db_table = 'usuario'

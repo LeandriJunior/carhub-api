@@ -24,6 +24,7 @@ class Grupo(core.models.Log):
     modulo = models.CharField(max_length=64, null=True)
     grupo_pai = models.ForeignKey('self', on_delete=models.DO_NOTHING, null=True)
     prioridade = models.IntegerField(null=True)
+    tela_principal = models.CharField(max_length=255, null=True)
     class Meta:
         db_table = 'sistema_grupo'
 
@@ -35,3 +36,18 @@ class GrupoPontoFuncao(core.models.Log):
     class Meta:
         db_table = 'sistema_grupo_pontofuncao'
 
+
+class GrupoUser(core.models.Log):
+    grupo = models.ForeignKey('Grupo', on_delete=models.DO_NOTHING, null=True)
+    user = models.ForeignKey('usuario.Usuario', on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        db_table = 'sistema_grupo_user'
+
+
+class PontoFuncaoUser(core.models.Log):
+    ponto_funcao = models.ForeignKey('PontoFuncao', on_delete=models.DO_NOTHING, null=True)
+    user = models.ForeignKey('usuario.Usuario', on_delete=models.DO_NOTHING, null=True)
+
+    class Meta:
+        db_table = 'sistema_ponto_funcao_user'

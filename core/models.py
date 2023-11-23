@@ -1,4 +1,4 @@
-from datetime import timezone
+import datetime
 
 from django.db import models
 
@@ -17,12 +17,12 @@ class Log(models.Model):
     def save(self, *args, **kwargs):
         ''' On save, update timestamps '''
         if not self.id:
-            self.dt_criacao = timezone.now()
+            self.dt_criacao = datetime.datetime.now()
             try:
                 self.user_criacao = self.request.user.pk
             except:
                 pass
-        self.dt_edicao = timezone.now()
+        self.dt_edicao = datetime.datetime.now()
         try:
             self.user_edicao = self.request.user.pk
         except:

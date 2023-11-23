@@ -20,10 +20,10 @@ class Login:
             status, descricao, user = self.authenticate()
 
             if status:
-                status, descricao, sessao = BO.client_core.login.section.Section(user=user).access_section()
+                status, descricao, sessao = BO.client_core.login.section.Section(user=user).fazer()
 
                 response = {
-                    'user_name': user['user'].nm_primeiro+ ' ' + user['user'].nm_ultimo,
+                    'sessao': sessao,
                     'user_token': user.get('token')
                 }
                 return status, descricao, response

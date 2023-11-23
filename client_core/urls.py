@@ -6,8 +6,8 @@ import client_core.login.urls
 import client_core.login.views
 
 urlpatterns = [
-    path('registrar', csrf_exempt(client_core.login.views.RegisterUserView().as_view())),
-    path('login', csrf_exempt(client_core.login.views.LoginUserView().as_view())),
+    path('api/registrar', csrf_exempt(client_core.login.views.RegisterUserView().as_view())),
+    path('api/login', csrf_exempt(client_core.login.views.LoginUserView().as_view())),
 
-    path('usuario', include(client_core.usuario.urls)),
+    path('api/usuario', include(client_core.usuario.urls)),
 ]

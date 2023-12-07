@@ -1,13 +1,13 @@
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.decorators.csrf import csrf_exempt
 
-import client_core.usuario.urls
-import client_core.login.urls
-import client_core.login.views
+from client_core.login import views as login
+from client_core.usuario import urls as usuario
+from client_core.sistema import urls as sistema
 
 urlpatterns = [
-    path('api/registrar', csrf_exempt(client_core.login.views.RegisterUserView().as_view())),
-    path('api/login', csrf_exempt(client_core.login.views.LoginUserView().as_view())),
-
-    path('api/usuario', include(client_core.usuario.urls)),
+    path('api/registrar', csrf_exempt(login.RegisterUserView().as_view())),
+    path('api/login', csrf_exempt(login.LoginUserView().as_view())),
+    re_path('api/usuario', include(usuario)),
+    re_path('api/sistema', include(sistema)),
 ]

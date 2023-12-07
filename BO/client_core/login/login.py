@@ -2,9 +2,11 @@ from typing import Optional
 
 import jwt
 from django.contrib.auth import authenticate, user_logged_in
+from django.db.models import F
 from rest_framework_jwt.utils import jwt_payload_handler
 
 import BO.client_core.login.section
+import client_core.pagina.models
 from cartech import settings
 
 
@@ -55,3 +57,10 @@ class Login:
             return token.decode('utf-8')
         except ValueError:
             return None
+
+    @staticmethod
+    def get_config_login():
+        return client_core.pagina.models.Pagina.objects.filter(status=True, nome='login').values(
+            background_color=F('configuracao__background_color'),
+            logo=F('configuracao__logo')
+        ).first()

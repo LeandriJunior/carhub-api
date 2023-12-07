@@ -11,6 +11,10 @@ import BO.client_core.login.login
 # Create your views here.
 
 class LoginUserView(APIView):
+    def get(self, *args, **kwargs):
+        login = BO.client_core.login.login.Login.get_config_login()
+
+        return JsonResponse(login, safe=False)
     def post(self, request):
         data = json.loads(self.request.body)
 

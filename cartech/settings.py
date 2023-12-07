@@ -37,7 +37,7 @@ DATABASES = {
         'ENGINE': 'tenant_schemas.postgresql_backend',
         'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '32654808@Aa',
+        'PASSWORD': 'ipB3rMFVxlkwmu2U',
         'HOST': 'db.osqzgpabpnucisqxxiof.supabase.co',
         'PORT': '5432',
     }
@@ -67,6 +67,7 @@ TENANT_APPS = [
     'client_core.usuario',
     'client_core.sistema',
     'client_core.sistema.permissao',
+    'client_core.pagina'
 
 ]
 

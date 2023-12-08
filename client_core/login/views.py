@@ -28,8 +28,8 @@ class LoginUserView(APIView):
 
         response = {
             'status': status,
-            'description': descricao,
-            'response': response
+            'descricao': descricao,
+            'dados': response
         }
         return JsonResponse(response)
 
@@ -51,3 +51,12 @@ class RegisterUserView(APIView):
             status = {'status': False,
                       'description': e}
         return JsonResponse(status)
+
+
+class HomeTestView(APIView):
+    def get(self, *args, **kwargs):
+        response = {
+            'mensagem': f'Olá {self.request}'
+        }
+
+        return JsonResponse(response, safe=True)

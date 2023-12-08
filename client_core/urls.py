@@ -8,6 +8,7 @@ from client_core.sistema import urls as sistema
 urlpatterns = [
     path('api/registrar', csrf_exempt(login.RegisterUserView().as_view())),
     path('api/login', csrf_exempt(login.LoginUserView().as_view())),
+    path('api/home', csrf_exempt(login.HomeTestView().as_view())),
     re_path('api/usuario', include(usuario)),
     re_path('api/sistema', include(sistema)),
 ]

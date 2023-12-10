@@ -56,7 +56,7 @@ class RegisterUserView(APIView):
 class HomeTestView(APIView):
     def get(self, *args, **kwargs):
         response = {
-            'mensagem': f'Olá {self.request}'
+            'mensagem': f'Olá {self.request.tenant.schema_name}'
         }
 
         return JsonResponse(response, safe=True)

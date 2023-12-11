@@ -19,6 +19,7 @@ class PaginaConfiguracao(Log):
     background_color = models.CharField(max_length=6, null=False)
     background_image = models.CharField(max_length=1024, null=True)
     logo = models.CharField(max_length=1024, null=True)
+    configuracao = models.TextField(null=True)
 
     class Meta:
         db_table = 'sistema_pagina_configuracao'

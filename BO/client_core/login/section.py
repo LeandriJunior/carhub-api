@@ -28,6 +28,7 @@ class Section:
         return True, '', response
 
     def fazer(self):
+
         self.__grupos_usuario()
         self.__ponto_funcao_usuario()
         self.__tela_principal_usuario()

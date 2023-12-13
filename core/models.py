@@ -29,3 +29,35 @@ class Log(models.Model):
             pass
 
         return super(Log, self).save(*args, **kwargs)
+
+
+class EnderecoLog(models.Model):
+    """
+    :Nome da classe/função: EnderecoLog
+    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de endereço
+    :Criação: Nícolas Marinoni Grande - 17/08/2020
+    :Edições:
+    """
+    cep = models.CharField(max_length=10, null=True)
+    cep_form = models.CharField(max_length=15, null=True)
+    municipio = models.CharField(max_length=15, null=True)
+    bairro_cep = models.CharField(max_length=100, null=True)
+    endereco_cep = models.CharField(max_length=100, null=True)
+    endereco_comp_cep = models.CharField(max_length=200, null=True)
+    latitude_cep = models.CharField(max_length=200, null=True)
+    longitude_cep = models.CharField(max_length=200, null=True)
+    tipo_cep = models.CharField(max_length=200, null=True)
+
+    class Meta():
+        abstract = True
+
+
+class EmpresaLog(models.Model):
+    nome = models.CharField(max_length=255, null=True)
+    cnpj = models.CharField(max_length=50, null=True)
+    cnpj_form = models.CharField(max_length=50, null=True)
+    razao_social = models.CharField(max_length=200, null=True)
+    nm_fantasia = models.CharField(max_length=200, null=True)
+
+    class Meta():
+        abstract = True

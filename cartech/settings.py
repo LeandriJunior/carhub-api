@@ -67,7 +67,9 @@ TENANT_APPS = [
     'client_core.usuario',
     'client_core.sistema',
     'client_core.sistema.permissao',
-    'client_core.pagina'
+    'client_core.pagina',
+    'empresa',
+    'empresa.filial',
 
 ]
 

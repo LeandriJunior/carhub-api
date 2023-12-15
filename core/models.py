@@ -61,3 +61,84 @@ class EmpresaLog(models.Model):
 
     class Meta():
         abstract = True
+
+class ContatoLog(models.Model):
+    """
+    :Nome da classe/função: ContatoLog
+    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de contato
+    :Criação: Nícolas Marinoni Grande - 17/08/2020
+    :Edições:
+    """
+    celular_numero = models.CharField(max_length=50, null=True)
+    celular_ddd = models.CharField(max_length=3, null=True)
+    celular_completo = models.CharField(max_length=50, null=True)
+    celular_completo_form = models.CharField(max_length=50, null=True)
+
+    telefone_numero = models.CharField(max_length=50, null=True)
+    telefone_ddd = models.CharField(max_length=3, null=True)
+    telefone_completo = models.CharField(max_length=50, null=True)
+    telefone_completo_form = models.CharField(max_length=50, null=True)
+
+    email = models.EmailField(max_length=200, null=True)
+    email_financeiro = models.EmailField(max_length=200, null=True)
+    email_documentacao = models.EmailField(max_length=200, null=True)
+
+    class Meta():
+        abstract = True
+
+
+class PessoaLog(ContatoLog):
+    """
+    :Nome da classe/função: PessoaLog
+    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de pessoa
+    :Criação: Nícolas Marinoni Grande - 17/08/2020
+    :Edições:
+    """
+    nm_completo = models.CharField(max_length=200, null=True)
+    nm_primeiro = models.CharField(max_length=200, null=True)
+    nm_ultimo = models.CharField(max_length=200, null=True)
+
+    cpf = models.BigIntegerField(null=True)
+    cpf_form = models.CharField(max_length=20, null=True)
+
+    rg = models.CharField(max_length=15, null=True)
+    rg_form = models.CharField(max_length=15, null=True)
+
+    dat_nasc = models.DateField(null=True)
+
+    imagem = models.FileField(upload_to='fotos/usuarios', default='fotos/sem-foto.png', null=True)
+
+    SEXOS = (
+        ("masculino", "Masculino"),
+        ("femenino", "Femenino"),
+        ("outros", "Outros")
+    )
+
+    sexo = models.CharField(max_length=9, null=True, choices=SEXOS)
+
+    class Meta():
+        abstract = True
+
+
+class PessoaJuridicaLog(models.Model):
+    cnpj = models.CharField(max_length=50, null=True)
+    cnpj_form = models.CharField(max_length=50, null=True)
+    nome = models.CharField(max_length=200, null=True)
+    razao_social = models.CharField(max_length=200, null=True)
+    nm_fantasia = models.CharField(max_length=200, null=True)
+
+    class Meta():
+        abstract = True
+
+
+class Tipo(Log):
+    codigo = models.CharField(max_length=200, null=True)
+    informacao = models.CharField(max_length=500, null=True)
+    tipo = models.CharField(max_length=200, null=True)
+    nome = models.CharField(max_length=200, null=True)
+    descricao = models.TextField(null=True)
+    ordem = models.IntegerField(null=True)
+
+    class Meta:
+        db_table="tipo"
+

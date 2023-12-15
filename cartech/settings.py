@@ -70,6 +70,8 @@ TENANT_APPS = [
     'client_core.pagina',
     'empresa',
     'empresa.filial',
+    'cliente',
+    'automovel'
 
 ]
 

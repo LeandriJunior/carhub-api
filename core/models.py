@@ -131,14 +131,4 @@ class PessoaJuridicaLog(models.Model):
         abstract = True
 
 
-class Tipo(Log):
-    codigo = models.CharField(max_length=200, null=True)
-    informacao = models.CharField(max_length=500, null=True)
-    tipo = models.CharField(max_length=200, null=True)
-    nome = models.CharField(max_length=200, null=True)
-    descricao = models.TextField(null=True)
-    ordem = models.IntegerField(null=True)
-
-    class Meta:
-        db_table="tipo"
 

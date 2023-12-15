@@ -5,14 +5,13 @@ import core.models
 
 # Create your models here.
 
-class Empresa(core.models.Log):
-    logo = models.CharField(max_length=2048, null=True, default='empresa/logo/sem-logo.png')
-    cor_principal = models.CharField(max_length=10, null=True)
-    cor_secundaria = models.CharField(max_length=10, null=True)
-    nome = models.CharField(max_length=255, null=True)
+class Tipo(core.models.Log):
+    codigo = models.CharField(max_length=200, primary_key=True)
+    informacao = models.CharField(max_length=500, null=True)
+    tipo = models.CharField(max_length=200, null=True)
+    nome = models.CharField(max_length=200, null=True)
+    descricao = models.TextField(null=True)
+    ordem = models.IntegerField(null=True)
 
-
-class ModuloEmpresa(core.models.Log):
-    nome = models.CharField(max_length=255, null=True)
-    acesso = models.BooleanField(default=True)
-
+    class Meta:
+        db_table = "tipo"

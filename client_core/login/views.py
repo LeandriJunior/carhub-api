@@ -1,24 +1,22 @@
 import json
 
 from django.http import JsonResponse
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 import client_core.usuario.models
-import BO.client_core.login.login
+import service.client_core.login.login
 
 
 # Create your views here.
 
 class LoginUserView(APIView):
     def get(self, *args, **kwargs):
-        login = BO.client_core.login.login.Login.get_config_login()
+        login = service.client_core.login.login.Login.get_config_login()
 
         return JsonResponse(login, safe=False)
     def post(self, request):
         data = json.loads(self.request.body)
 
-        sistema = BO.client_core.login.login.Login(
+        sistema = service.client_core.login.login.Login(
                                             request=self.request,
                                             username=data.get('username'),
                                             password=data.get('password')

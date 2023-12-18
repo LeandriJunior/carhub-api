@@ -1,8 +1,7 @@
 from django.http import JsonResponse
-from django.shortcuts import render
 from rest_framework.views import APIView
 
-import BO.client_core.sistema.pagina.pagina as BOPagina
+import service.client_core.sistema.pagina.pagina as BOPagina
 
 
 # Create your views here.

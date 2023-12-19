@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, user_logged_in, login
 from django.db.models import F
 from rest_framework_jwt.utils import jwt_payload_handler
 
-import BO.client_core.login.section
+import service.client_core.login.section
 import client_core.pagina.models
 from cartech import settings
 import client_core.usuario.models
@@ -22,7 +22,7 @@ class Login:
             status, descricao, user = self.authenticate()
 
             if status:
-                status, descricao, sessao = BO.client_core.login.section.Section(user=user).fazer()
+                status, descricao, sessao = service.client_core.login.section.Section(user=user).fazer()
                 self.request.session['sessao'] = sessao
                 self.request.session['tela_principal'] = sessao.get('tela_principal')
                 self.request.session['schema'] = sessao.get('schema')

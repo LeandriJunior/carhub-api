@@ -15,7 +15,6 @@ class Log(models.Model):
         abstract = True
 
     def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
         if not self.id:
             self.dt_criacao = datetime.datetime.now()
             try:
@@ -32,12 +31,6 @@ class Log(models.Model):
 
 
 class EnderecoLog(models.Model):
-    """
-    :Nome da classe/função: EnderecoLog
-    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de endereço
-    :Criação: Nícolas Marinoni Grande - 17/08/2020
-    :Edições:
-    """
     cep = models.CharField(max_length=10, null=True)
     cep_form = models.CharField(max_length=15, null=True)
     municipio = models.CharField(max_length=15, null=True)
@@ -63,12 +56,6 @@ class EmpresaLog(models.Model):
         abstract = True
 
 class ContatoLog(models.Model):
-    """
-    :Nome da classe/função: ContatoLog
-    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de contato
-    :Criação: Nícolas Marinoni Grande - 17/08/2020
-    :Edições:
-    """
     celular_numero = models.CharField(max_length=50, null=True)
     celular_ddd = models.CharField(max_length=3, null=True)
     celular_completo = models.CharField(max_length=50, null=True)
@@ -88,12 +75,6 @@ class ContatoLog(models.Model):
 
 
 class PessoaLog(ContatoLog):
-    """
-    :Nome da classe/função: PessoaLog
-    :descrição: Classe abstrata que é usada como pai para classes que irão ter informações de pessoa
-    :Criação: Nícolas Marinoni Grande - 17/08/2020
-    :Edições:
-    """
     nm_completo = models.CharField(max_length=200, null=True)
     nm_primeiro = models.CharField(max_length=200, null=True)
     nm_ultimo = models.CharField(max_length=200, null=True)

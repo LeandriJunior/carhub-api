@@ -25,20 +25,22 @@ SECRET_KEY = 'django-insecure-&lxt$)&%^@(o^_eft4%&%n9#of!%=n2+9*aio*^he2%t(di&0y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-AUTH_USER_MODEL = 'usuario.UsuarioLogin'
+#AUTH_USER_MODEL = 'usuario.UsuarioLogin'
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 CORS_ALLOWED_ORIGINS = ['*']
 
+#'ipB3rMFVxlkwmu2U',
+#'HOST': 'db.osqzgpabpnucisqxxiof.supabase.co',
 DATABASES = {
     'default': {
         'ENGINE': 'tenant_schemas.postgresql_backend',
         'NAME': 'postgres',
-        'USER': 'postgres',
-        'PASSWORD': 'ipB3rMFVxlkwmu2U',
-        'HOST': 'db.osqzgpabpnucisqxxiof.supabase.co',
+        'USER': 'postgres.kyvmotgiqntyrfhdynqv',
+        'PASSWORD': '32654808@Aa',
+        'HOST': 'aws-0-sa-east-1.pooler.supabase.com',
         'PORT': '5432',
     }
 }

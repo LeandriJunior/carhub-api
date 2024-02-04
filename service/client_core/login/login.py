@@ -10,6 +10,7 @@ import client_core.pagina.models
 from cartech import settings
 import client_core.usuario.models
 
+
 class Login:
     def __init__(self, request=None, username=None, password=None):
         self.request = request

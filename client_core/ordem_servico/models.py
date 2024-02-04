@@ -6,14 +6,14 @@ from core.models import Log
 # Create your models here.
 
 class OrdemServico(Log):
-    cliente = models.ForeignKey('cliente.Cliente', on_delete=models.DO_NOTHING, null=True),
-    carro = models.ForeignKey('automovel.Automovel', on_delete=models.DO_NOTHING, null=True),
-    status_ordem = models.ForeignKey('OrdemServicoStatus', on_delete=models.DO_NOTHING, null=True),
+    cliente = models.ForeignKey('cliente.Usuario', on_delete=models.DO_NOTHING, null=True)
+    carro = models.ForeignKey('automovel.Automovel', on_delete=models.DO_NOTHING, null=True)
+    status_ordem = models.ForeignKey('OrdemServicoStatus', on_delete=models.DO_NOTHING, null=True)
     is_aprovado = models.BooleanField(default=False),
-    responsavel = models.ForeignKey('usuario.Usuario', on_delete=models.DO_NOTHING, null=True),
-    dt_expedicao = models.DateField(null=True),
-    hr_expedicao = models.DateField(null=True),
-    dt_entrega = models.CharField(max_length=5, null=True),
+    responsavel = models.ForeignKey('usuario.Usuario', on_delete=models.DO_NOTHING, null=True)
+    dt_expedicao = models.DateField(null=True)
+    hr_expedicao = models.DateField(null=True)
+    dt_entrega = models.CharField(max_length=5, null=True)
     hr_entrega = models.CharField(max_length=5, null=True)
 
     class Meta:

@@ -7,4 +7,3 @@ class Usuario(Log, EnderecoLog, PessoaLog):
 
     class Meta:
         db_table = 'cliente'
-

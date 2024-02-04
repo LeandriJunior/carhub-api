@@ -74,7 +74,7 @@ TENANT_APPS = [
     'empresa',
     'empresa.filial',
     'cliente',
-    'automovel'
+    'automovel',
 
 ]
 

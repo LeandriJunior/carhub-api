@@ -73,8 +73,8 @@ TENANT_APPS = [
     'client_core.ordem_servico',
     'empresa',
     'empresa.filial',
-    'cliente',
-    'automovel',
+    'client_core.cliente',
+    'client_core.automovel',
 
 ]
 
